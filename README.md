@@ -1,8 +1,6 @@
-# Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes
+## Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes
 
-This repository contains code for the paper:
-
- <a href="https://arxiv.org/abs/2504.08074">Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes</a>.
+This repository contains code for the paper: <a href="https://arxiv.org/abs/2504.08074">Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes</a>.
  
 
 The goal of this project is to explore RL for day-to-day dynamic tolling within tradable credit schemes (TCS) based on following work:
@@ -18,13 +16,12 @@ pip install -e .
 pip install -r requirements.txt
 ```
 
-
 ## Usage
 ```bash
 import gym_custom_env
 ```
 
-# Run the Python script
+## Run the Python script
 ```bash
 python3 main.py
 ```
@@ -34,8 +31,7 @@ python3 main.py
 sbatch RL4TCS/main.job
 ```
 
-
-## Strucutre
+## File Strucutre
 ```php
 gym-custom-env/
 │
