@@ -19,4 +19,4 @@ Reference:
 python3 main.py
 
 5. Run with slurm:
-SBATCH main.job
+SBATCH RL4TCS/main.job
