@@ -2,12 +2,13 @@
 
 This repository contains code for the paper:
 
-> **Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes**
+ <a href="https://arxiv.org/abs/2504.08074">Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes</a>.
+ 
 
 The goal of this project is to explore RL for day-to-day dynamic tolling within tradable credit schemes (TCS) based on following work:
+
 - TCS: Chen, Siyu, et al. "Market design for tradable mobility credits." Transportation Research Part C: Emerging Technologies 151 (2023): 104121.
 - MFD: Liu, Renming, et al. "Managing network congestion with a trip-and area-based tradable credit scheme." Transportmetrica B: Transport Dynamics 11.1 (2023): 434-462.
-- Customized Gymnasium Environment <a href="https://gymnasium.farama.org/tutorials/gymnasium_basics/environment_creation/">tutorial</a>.
 
 
 ## Installation
