@@ -1,22 +1,83 @@
-This is a customed environment based on Gymnasium, which is composed of macroscopic fundamental diagram(MFD) and tradable credit systems(TCS). 
+# Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes
 
-To install the package in local computer: 
-`pip install -e`
-`pip install -r requirements.txt`
+This repository contains code for the paper:
 
-To use the package:
-`import gym_custom_env`
+> **Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes**
 
-Reference: 
+The goal of this project is to explore RL for day-to-day dynamic tolling within tradable credit schemes (TCS) based on following work:
+- TCS: Chen, Siyu, et al. "Market design for tradable mobility credits." Transportation Research Part C: Emerging Technologies 151 (2023): 104121.
+- MFD: Liu, Renming, et al. "Managing network congestion with a trip-and area-based tradable credit scheme." Transportmetrica B: Transport Dynamics 11.1 (2023): 434-462.
+- Customized Gymnasium Environment <a href="https://gymnasium.farama.org/tutorials/gymnasium_basics/environment_creation/">tutorial</a>.
 
-1. TCS: Chen, Siyu, et al. "Market design for tradable mobility credits." Transportation Research Part C: Emerging Technologies 151 (2023): 104121.
 
-2. MFD: Liu, Renming, et al. "Managing network congestion with a trip-and area-based tradable credit scheme." Transportmetrica B: Transport Dynamics 11.1 (2023): 434-462.
+## Installation
+```bash
+# Install dependencies
+pip install -e .
+pip install -r requirements.txt
+```
 
-3. Customized Gymnasium Environment <a href="https://gymnasium.farama.org/tutorials/gymnasium_basics/environment_creation/">tutorial</a>.
 
-4. run: 
+## Usage
+```bash
+import gym_custom_env
+```
+
+# Run the Python script
+```bash
 python3 main.py
+```
 
-5. Run with slurm:
-SBATCH RL4TCS/main.job
+## Run with Slurm 
+```bash
+sbatch RL4TCS/main.job
+```
+
+
+## Strucutre
+gym-custom-env/
+│
+├── gym_custom_env/
+│   ├── __pycache__/
+│   ├── envs/
+│   │   ├── __pycache__/
+│   │   ├── __init__.py
+│   │   ├── Bottleneck_env.py
+│   │   ├── commute_env_A_mu_sigma.py
+│   │   ├── commute_env_A_mu.py
+│   │   ├── commute_env_A_sigma.py
+│   │   ├── commute_env_A_v2.py
+│   │   ├── commute_env_A_v3.py
+│   │   ├── commute_env_A.py
+│   │   ├── commute_env_base.py
+│   │   ├── commute_env_mu_sigma.py
+│   │   ├── commute_env_mu_v3.py
+│   │   ├── commute_env_mu.py
+│   │   ├── commute_env_sigma_v3.py
+│   │   ├── commute_env_sigma.py
+│   │   ├── commute_env_sw.py
+│   │   ├── MFD_env.py
+│   │   └── test_env.py
+│   │
+│   ├── wrappers/
+│   │   ├── __init__.py
+│   │
+│   └── gym_custom_env.egg-info/
+│
+├── statistics/
+│   └── statistics for 1-dim-RL-MFD-eval.ipynb
+│
+├── config.py
+├── helper.py
+├── main.job
+├── main.py
+├── requirements.txt
+└── setup.py
+
+
+## Contact
+- Xiaoyi Wu - [xiawu@dtu.dk]
+- Denmark Technical University
+
+
+
