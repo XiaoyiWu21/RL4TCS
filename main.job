@@ -1,0 +1,47 @@
+#!/bin/bash
+#SBATCH --job-name=RL_MFD
+#SBATCH --time=24:00:00
+#SBATCH --partition=fatq
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=32
+#SBATCH --output=/home/xiawu/RL4PT/logs/hpc_log/RL_MFD/Jun_2025/Output_%A_%a.out
+#SBATCH --error=/home/xiawu/RL4PT/logs/hpc_log/RL_MFD/Jun_2025/Output_%A_%a.err
+#SBATCH --mail-user=xiawu@dtu.dk
+#SBATCH --mail-type=END # Send email when the job finishes
+
+module load Python/3.10.4-GCCcore-11.3.0 
+source  .virtualenvs/py310/bin/activate
+
+
+
+# Array of different configurations
+CONFIGS=(
+   # "env_id=CommuteEnv_A scenario=Trinity seed=321 resume=False log_name=SW_state " 
+
+   # "env_id=CommuteEnv_A scenario=Trinity seed=321 resume=False log_name=SW_state " 
+   # "env_id=CommuteEnv_A_mu_sigma scenario=Trinity seed=321 resume=False log_name=CommuteEnv_A_mu_sigma_321" 
+   # "env_id=CommuteEnv_A_mu_sigma scenario=Trinity seed=111 resume=False log_name=CommuteEnv_A_mu_sigma_111" 
+   # "env_id=CommuteEnv_A_mu_sigma scenario=Trinity seed=7 resume=False log_name=CommuteEnv_A_mu_sigma_7" 
+
+   # "env_id=CommuteEnv_A_sigma scenario=Trinity seed=111 resume=False log_name=1st_run_A_sigma " # run from scratch in A mu
+   # "env_id=CommuteEnv_mu scenario=Trinity seed=111 resume=False log_name=1st_run_mu" # run from scratch in mu
+   # "env_id=CommuteEnv_sigma scenario=Trinity seed=111 resume=False log_name=1st_run_sigma" # run from scratch in sigma
+   # "env_id=CommuteEnv_A scenario=CP seed=111 resume=True resume_path=Aug_22_06_31_40_2024 resume_step=12480 log_name=trans_from_Tri_to_CP_in_A" #transfer from Trinity to CP in A
+#    "env_id=CommuteEnv_A_v2 scenario=Trinity seed=111 resume=True resume_path=Aug_22_06_33_58_2024 resume_step=11520 log_name=trans_from_A_mu_to_A_in_Tri" #transfer from A, mu to A
+#    "env_id=CommuteEnv_mu_v3 scenario=Trinity seed=111 resume=True resume_path=Aug_22_06_34_34_2024 resume_step=11520 log_name=trans_from_A_mu_sigma_to_mu_in_Tri" #transfer from A, mu, sigma to mu
+#    "env_id=CommuteEnv_sigma_v3 scenario=Trinity seed=111 resume=True resume_path=Aug_22_06_34_34_2024 resume_step=11520 log_name=trans_from_A_mu_simga_to_sigma_in_Tri" #transfer from A, mu, sigma to sigma
+#    "env_id=CommuteEnv_A_v3 scenario=Trinity seed=111 resume=True resume_path=Aug_22_06_34_34_2024 resume_step=11520 log_name=trans_from_A_mu_simga_to_A_in_Tri" #transfer from A, mu, sigma to A
+   # "env_id=CommuteEnv_A_mu_sigma scenario=Trinity seed=7 resume=True resume_path=Oct_25_21_32_58_2024_None resume_step=36480 log_name=CommuteEnv_A_mu_sigma_7_2" #transfer from A, mu, sigma to A
+   # "env_id=CommuteEnv_A_mu_sigma scenario=Trinity seed=111 resume=True resume_path=Oct_25_21_32_13_2024_None resume_step=36480 log_name=CommuteEnv_A_mu_sigma_111_2" #transfer from A, mu, sigma to A
+   # "env_id=CommuteEnv_A_mu_sigma scenario=Trinity seed=321 resume=True resume_path=Oct_25_21_26_58_2024_None resume_step=36480 log_name=CommuteEnv_A_mu_sigma_321_2" #transfer from A, mu, sigma to A
+   # "env_id=CommuteEnv_A_mu_sigma scenario=Trinity seed=111 resume=False log_name=CommuteEnv_A_mu_sigma_e_3_a_L1" #transfer from A, mu, sigma to A
+   "env_id=CommuteEnv_A_mu_sigma scenario=Trinity seed=111 resume=True resume_path=Jun_30_17_47_06_2025_None resume_step=46080 log_name=CommuteEnv_A_mu_sigma" #transfer from A, mu, sigma to A
+)
+
+
+# Iterate over each configuration and run the Python script
+for CONFIG in "${CONFIGS[i]}"; do
+   echo "Running with configuration: $CONFIG"
+   python3 RL4PT/main.py $CONFIG
+done
