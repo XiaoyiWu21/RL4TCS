@@ -36,6 +36,7 @@ sbatch RL4TCS/main.job
 
 
 ## Strucutre
+```php
 gym-custom-env/
 │
 ├── gym_custom_env/
@@ -74,7 +75,7 @@ gym-custom-env/
 ├── main.py
 ├── requirements.txt
 └── setup.py
-
+```
 
 ## Contact
 - Xiaoyi Wu - [xiawu@dtu.dk]
