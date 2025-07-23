@@ -5,9 +5,9 @@ This repository contains code for the paper: <a href="https://arxiv.org/abs/2504
 
 The goal of this project is to explore RL for day-to-day dynamic tolling within tradable credit schemes (TCS) based on following work:
 
-- TCS: Chen, Siyu, et al. <a href="https://www.sciencedirect.com/science/article/pii/S0968090X23001109">"Market design for tradable mobility credits. "</a>
+- TCS: Chen, Siyu, et al. <a href="https://www.sciencedirect.com/science/article/pii/S0968090X23001109">Market design for tradable mobility credits. </a>
  Transportation Research Part C: Emerging Technologies 151 (2023): 104121.
-- MFD: Liu, Renming, et al. <a href="https://www.tandfonline.com/doi/full/10.1080/21680566.2022.2083034">"Managing network congestion with a trip-and area-based tradable credit scheme. "</a> Transportmetrica B: Transport Dynamics 11.1 (2023): 434-462.
+- MFD: Liu, Renming, et al. <a href="https://www.tandfonline.com/doi/full/10.1080/21680566.2022.2083034">Managing network congestion with a trip-and area-based tradable credit scheme. </a> Transportmetrica B: Transport Dynamics 11.1 (2023): 434-462.
 
 
 ## Installation
