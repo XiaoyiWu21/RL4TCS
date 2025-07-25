@@ -7,8 +7,10 @@ The goal of this project is to explore RL for day-to-day dynamic tolling within 
 
 - TCS: Chen, Siyu, et al. <a href="https://www.sciencedirect.com/science/article/pii/S0968090X23001109">Market design for tradable mobility credits. </a>
  Transportation Research Part C: Emerging Technologies 151 (2023): 104121.
-- MFD: Liu, Renming, et al. <a href="https://www.tandfonline.com/doi/full/10.1080/21680566.2022.2083034">Managing network congestion with a trip-and area-based tradable credit scheme. </a> Transportmetrica B: Transport Dynamics 11.1 (2023): 434-462. Code available at  <a href="https://github.com/RM-Liu/MFD_TCS">Github Repo</a>. 
+- Macroscopic Fundamental Diagram (MFD): Liu, Renming, et al. <a href="https://www.tandfonline.com/doi/full/10.1080/21680566.2022.2083034">Managing network congestion with a trip-and area-based tradable credit scheme. </a> Transportmetrica B: Transport Dynamics 11.1 (2023): 434-462. Code available at  <a href="https://github.com/RM-Liu/MFD_TCS">RM-Liu/MFD_TCS</a>. 
 
+![Proposed RL framework](assets/framework.png)  
+*Figure 1: Proposed RL Framework.*
 
 ## Installation
 ```bash
@@ -22,15 +24,65 @@ pip install -r requirements.txt
 import gym_custom_env
 ```
 
-## Run the Python script
+## Quick start example
+You can begin by training a policy in a 3-dimensional tolling environment (A, mu, and sigma) under the TCS(Trinity) scenario:
 ```bash
-python3 main.py
+python3 RL4PT/main.py env_id=CommuteEnv_A_mu_sigma scenario=Trinity seed=111 resume=False
 ```
 
-## Run with Slurm 
+To use Slurm for batch training:
+
 ```bash
 sbatch RL4TCS/main.job
 ```
+
+### Command-line Arguments
+
+| Argument       | Description                                                                 |
+|----------------|-----------------------------------------------------------------------------|
+| `env_id`       | The environment ID. Example: `CommuteEnv_A_mu_sigma`                        |
+| `scenario`     | Simulation scenario. Could choose between  `Trinity`  or `CP`(Congestion pricing)   or `NT` (No Tolling)                                  |
+| `seed`         | Random seed for reproducibility                                             |
+| `resume`       | Whether to resume from a specific training (`True` or `False`)                              |
+| `resume_path`  | Path to the checkpoint folder (used when `resume=True`)                     |
+| `log_name`     | Custom name for the log directory for tensorboard                                          |
+| `absolute_change_mode`     | Whether to use absolute change mode in toll update                         |
+| `initialization`           | Initialization type: `'NT'`, `'random'`, `'best'`                          |
+| `toll_type`                | Type of tolling applied: `'normal'` or `'step'`                            |
+| `supply_model`             | Traffic model used, e.g., `'MFD'` or `'Bottleneck'`                        |
+| `state_shape`              | Shape of the observation space                                             |
+| `allocation.capacity`      | Total credits/toll capacity for the system                                 |
+| `n_envs`                   | Number of parallel environments used for sampling                          |
+| `train_episode`            | Total number of training episodes                                          |
+| `evaluation_time_episode`  | Duration (in time units) for each evaluation episode                       |
+| `training_n_epochs`        | Number of training epochs per update cycle                                 |
+| `simulation_day_num`       | Total number of simulated days per training run                            |
+| `save_episode_freq`        | Frequency (in episodes) for saving training logs/statistics                |
+| `checkpoint_save_episode`  | Frequency (in episodes) to save model checkpoints                          |
+| `training_n_episode`       | Number of rollout episodes per environment before updating the policy      |
+| `eval_freq_episode`        | Frequency (in episodes) to evaluate the policy                             |
+| `batch_size_episode`       | Size of the mini-batch for policy updates                                  |
+| `std_weights`              | Weight for standard deviation loss penalty                                 |
+| `pt_weights`               | Weight for the main policy training loss                                   |
+| `device`                   | Hardware device for training, e.g., `'cpu'` or `'cuda'`                    |
+| `training_entropy_coef`    | Coefficient for entropy regularization (encourages exploration)            |
+| `training_learning_rate`   | Learning rate schedule or fixed value                                      |
+| `training_gae_lambda`      | Lambda for Generalized Advantage Estimation (GAE)                          |
+| `training_clip_range`      | PPO clipping range to prevent policy update overshooting                   |
+| `training_gamma`           | Discount factor γ for future rewards                                       |
+| `training_target_kl`       | Target KL divergence between old and new policies                          |
+| `reward_scheme`            | Reward structure used, e.g., `'triangle'`, `'step'`                        |
+| `reward_weight`            | Weight multiplier applied to environment rewards                           |
+| `num_of_users`             | Number of simulated users/agents in the environment                        |
+| `training_log_std_init`    | Initial log standard deviation value for stochastic policies               |
+| `seed`                     | Random seed for reproducibility                                            |
+| `policy_kwargs.net_arch`   | Hidden layer sizes in the policy network architecture (e.g., `[8, 8]`)     |
+| `policy_kwargs.log_std_init` | Initial log std dev for the policy                                       |
+| `user_params.lambda`       | Parameter λ representing user preference or sensitivity                    |
+| `user_params.gamma`        | Parameter γ for user-specific behavior modeling                            |
+| `user_params.hetero`       | Degree of heterogeneity in the user population                             |
+| `scenario`                 | Scenario name (used for file paths and logging)                            |
+| `mode`                     | Mode of execution: `'train'` or `'eval'`                                   |
 
 ## File Strucutre
 ```php
@@ -73,6 +125,20 @@ gym-custom-env/
 ├── requirements.txt
 └── setup.py
 ```
+### Environment variants
+
+| Environment File            | Description                                                                 |
+|-----------------------------|-----------------------------------------------------------------------------|
+commute_env_base.py         | Base class with shared logic for all commute environments.                  
+|commute_env_A.py            |  Commute environment within 1-dim action space: only update `A` (Amplitude) |
+|commute_env_A_mu.py         |  Commute environment within 2-dim action space: update  `A` (Amplitude)  and `mu` (Mean)|
+|commute_env_A_mu_sigma.py         |  Commute environment within 3-dim action space: update  `A` (Amplitude)  and `mu` (Mean) and `sigma` (std)|
+|commute_env_mu.py            |  Commute environment within 1-dim action space: only update `mu`.|
+|commute_env_mu_sigma.py         |  Commute environment within 2-dim action space: update  `mu` and `sigma`.|
+|commute_env_sigma.py         |  Commute environment within 1-dim action space: update `sigma`.|
+| Bottleneck_env.py           | Bottleneck-based simulation.            |
+| MFD_env.py                  | Macroscopic Fundamental Diagram (MFD)-based simulation/        |
+| test_env.py                 | Minimal environment used for testing/debugging the RL pipeline.             |
 
 ## Contact
 - Xiaoyi Wu - [xiawu@dtu.dk]

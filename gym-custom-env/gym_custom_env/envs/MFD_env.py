@@ -7,12 +7,7 @@ ffspeed = 45
 # capacity = 5600 
 capacity = 7000 
 
-# print(" capacity in MFD ", capacity)
-
 def gini(x):
-    # (Warning: This is a concise implementation, but it is O(n**2)
-    # in time and memory, where n = len(x).  *Don't* pass in huge
-    # samples!)
 
     # Mean absolute difference
     mad = np.abs(np.subtract.outer(x, x)).mean()
@@ -99,14 +94,6 @@ def estimated_TT(all_time_matrix,  time_list, car_number, _Accumulation, dist, f
     
     
 class Travelers():
-    # user parameters
-    # user accounts
-    # predicted departure times
-    # update trip intentions
-    # wihtin day mobility decisions
-    # sell and buy
-    # compute user account 
-    # distance is asummed to be 16miles
     def __init__(self,_numOfusers,
                   _user_params,_allowance,
                   _allocation,
@@ -974,45 +961,6 @@ class MFD_simulation():
             sell_state[j] = np.mean(sellvec[j*state_shape[0]:(j+1)*state_shape[0]])  
             buy_state[j] = np.mean(buyvec[j*state_shape[0]:(j+1)*state_shape[0]])  
 
-        # if space_shape[0] == 5:
-        #     state_ls = [numDepart, actualTT, buyamount, sellamount, self.toll]
-        #     state = np.concatenate(state_ls)
-        #     # aggravate the state from 1 min to 5 min
-        #     encode_shape = int(self.hoursInA_Day*60/state_aggravate)
-        #     state_encode = np.zeros(shape = encode_shape * len(state_ls))
-
-        #     for j in range(encode_shape):
-        #         state_encode[j] = np.mean(numDepart[j*state_aggravate:(j+1)*state_aggravate])
-        #         state_encode[j+1*encode_shape] = np.mean(actualTT[j*state_aggravate:(j+1)*state_aggravate])
-        #         state_encode[j+2*encode_shape] = np.mean(sellvec[j*state_aggravate:(j+1)*state_aggravate])
-        #         state_encode[j+3*encode_shape] = np.mean(buyvec[j*state_aggravate:(j+1)*state_aggravate])
-        #         state_encode[j+4*encode_shape] = np.mean(self.toll[j*state_aggravate:(j+1)*state_aggravate])
-        
-        # elif space_shape[0] == 4:
-        #     # TODO: average_accumulation, average_tt
-        #     state_ls = [numDepart, buyamount, sellamount, self.toll]
-        #     state = np.concatenate(state_ls)
-        #     # aggravate the state from 1 min to 5 min
-        #     encode_shape = int(self.hoursInA_Day*60/state_aggravate)
-        #     state_encode = np.zeros(shape = encode_shape * len(state_ls))
-        #     for j in range(encode_shape):
-        #         state_encode[j] = np.mean(numDepart[j*state_aggravate:(j+1)*state_aggravate])
-        #         state_encode[j+1*encode_shape] = np.mean(sellvec[j*state_aggravate:(j+1)*state_aggravate])
-        #         state_encode[j+2*encode_shape] = np.mean(buyvec[j*state_aggravate:(j+1)*state_aggravate])
-        #         state_encode[j+3*encode_shape] = np.mean(self.toll[j*state_aggravate:(j+1)*state_aggravate])
-        
-        # elif space_shape[0] == 1:
-        #     state_ls = [self.toll]
-        #     state = np.concatenate(state_ls)
-        #     # aggravate the state from 1 min to 5 min
-        #     encode_shape = int(self.hoursInA_Day*60/state_aggravate)
-        #     state_encode = np.zeros(shape = encode_shape * len(state_ls))
-        #     for j in range(encode_shape):
-        #         state_encode[j] = np.mean(numDepart[j*state_aggravate:(j+1)*state_aggravate])
-        
-        # else:
-        #     print(" not this type of state_shape")
-        #     exit(1)
         return tt_state, accumulation_state, sell_state, buy_state, pt_share_number, market_price, sw, tt_util, sde_util, sdl_util, ptwaiting_util, I_util, userBuy_util, userSell_util, fuelcost_util
     
     # calculate social welfare value
