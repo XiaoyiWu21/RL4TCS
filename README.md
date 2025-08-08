@@ -3,13 +3,11 @@
 This repository contains code for the paper: <a href="https://arxiv.org/abs/2504.08074">Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes</a>.
  
 ## Overview
-## Overview
-
 In this project, we investigates reinforcement learning (RL) for day-to-day dynamic toll optimization within a tradable credit scheme (TCS) framework. Our key contributions include:
 
-- **Problem Formulation**:  We formulate the dynamic tolling problem in a TCS as a Markov Decision Process (MDP) and solve it using a deep reinforcement learning framework.
-- **Generalization Analysis**: We evaluate the proposed approach across diverse demand and supply scenarios to assess its generalization under unseen events.
-- **Robustness Analysis**: We examine the robustness of the RL algorithm under various hyperparameter configurations and policy regularization techniques, providing insights into real-world application.
+- **Formulation**:  We formulate the dynamic tolling problem in a TCS as a Markov Decision Process (MDP) and solve it using a deep reinforcement learning framework.
+- **Generalization**: We evaluate the proposed approach across diverse demand and supply scenarios to assess its generalization under unseen events.
+- **Robustness**: We examine the robustness of the RL algorithm under various hyperparameter configurations and policy regularization techniques, providing insights into real-world application.
 
 More details about the TCS mechanism and the supply model used in this project can be found in the following works:
 
