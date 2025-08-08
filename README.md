@@ -10,7 +10,7 @@ The goal of this project is to explore RL for day-to-day dynamic tolling within 
 - Macroscopic Fundamental Diagram (MFD): Liu, Renming, et al. <a href="https://www.tandfonline.com/doi/full/10.1080/21680566.2022.2083034">Managing network congestion with a trip-and area-based tradable credit scheme. </a> Transportmetrica B: Transport Dynamics 11.1 (2023): 434-462. Code available at  <a href="https://github.com/RM-Liu/MFD_TCS">RM-Liu/MFD_TCS</a>. 
 
 <div align="center">
-  <img src="assets/framework.png" alt="Framework" width="500"/>
+  <img src="assets/framework.png" alt="Framework" width="600"/>
   <br>
   <em>Figure 1: Framework.</em>
 </div>
@@ -30,7 +30,7 @@ pip install -e gym-custom-env/
 pip install -r requirements.txt
 ```
 
-## Quick start example
+## Quick Start Example
 
 Train a policy in a 3-dimensional tolling environment (A, mu, sigma) under the TCS (Trinity) scenario:
 
@@ -122,10 +122,10 @@ gym-custom-env/
 │   └── statistics for 1-dim-RL-MFD-eval.ipynb
 │
 ├── output/ 
-│   └── input from NT to calculating social welfare
+│   └── input from NT scenari to calculate social welfare
 │
-├── config.py
-├── helper.py
+├── config.py 
+├── helper.py 
 ├── main.job
 ├── main.py
 ├── requirements.txt
