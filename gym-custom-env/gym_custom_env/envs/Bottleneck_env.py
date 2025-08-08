@@ -1,5 +1,3 @@
-import pandas as pd
-from numba import njit, prange
 import numpy as np
 
 _capacity = 42

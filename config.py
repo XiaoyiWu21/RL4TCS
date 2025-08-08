@@ -1,3 +1,4 @@
+# Different configs of training
 large_training_one_dim_config = {
     "absolute_change_mode": False,
     "initialization": "NT",  # NT, random, best

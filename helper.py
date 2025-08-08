@@ -1,28 +1,16 @@
 import os
-import warnings
-from stable_baselines3.common.callbacks import BaseCallback, EventCallback
-import os
-import warnings
-from stable_baselines3.common.callbacks import BaseCallback, EventCallback
-from typing import Any, Dict, Type, Union, List, Optional, Callable, Tuple
-import matplotlib.pyplot as plt
-from stable_baselines3.common.logger import HParam
+from stable_baselines3.common.callbacks import BaseCallback
 import numpy as np
 from stable_baselines3.common.monitor import Monitor
 import gymnasium as gym
-
 
 # Function to determine action shapes and weights based on environment ID
 def configure_action_shape_and_weights(env_id):
     env_configs = {
         'CommuteEnv_SW': ((1,), (2,)),
         'CommuteEnv_A': ((1,), (2,)),
-        'CommuteEnv_A_v2': ((2,), (2,0)),
-        'CommuteEnv_A_v3': ((3,), (2, 0, 0)),
         'CommuteEnv_mu': ((1,), (15,)),
-        'CommuteEnv_mu_v3': ((3,), (0, 15,0)),
         'CommuteEnv_sigma': ((1,), (3,)),
-        'CommuteEnv_sigma_v3': ((3,), (0, 0, 3)),
         'CommuteEnv_A_mu': ((2,), (2, 15)),
         'CommuteEnv_A_sigma': ((2,), (2, 3)),
         'CommuteEnv_A_mu_sigma': ((3,), (2, 15, 3)),

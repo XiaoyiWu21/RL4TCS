@@ -1,38 +1,44 @@
-## Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes
+# Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes
 
 This repository contains code for the paper: <a href="https://arxiv.org/abs/2504.08074">Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes</a>.
  
-
+## Overview
 The goal of this project is to explore RL for day-to-day dynamic tolling within tradable credit schemes (TCS) based on following work:
 
 - TCS: Chen, Siyu, et al. <a href="https://www.sciencedirect.com/science/article/pii/S0968090X23001109">Market design for tradable mobility credits. </a>
  Transportation Research Part C: Emerging Technologies 151 (2023): 104121.
 - Macroscopic Fundamental Diagram (MFD): Liu, Renming, et al. <a href="https://www.tandfonline.com/doi/full/10.1080/21680566.2022.2083034">Managing network congestion with a trip-and area-based tradable credit scheme. </a> Transportmetrica B: Transport Dynamics 11.1 (2023): 434-462. Code available at  <a href="https://github.com/RM-Liu/MFD_TCS">RM-Liu/MFD_TCS</a>. 
 
-<!-- ![Proposed RL framework](assets/framework.png)  
-*Figure 1: Proposed RL Framework.* -->
+![Framework](assets/framework.png)  
+*Figure 1: Framework.*
 
-## Installation
+## Setup Instructions
+### Python Settup
 ```bash
-# Install dependencies
-pip install -e .
+cd ~/RL4TCS
+python3.9 -m venv .venv
+source .venv/bin/activate
+```
+
+### Install Dependencies
+```bash
+pip install --upgrade pip
+pip install -e gym-custom-env/
 pip install -r requirements.txt
 ```
 
-## Usage
-```bash
-import gym_custom_env
-```
-
 ## Quick start example
-You can begin by training a policy in a 3-dimensional tolling environment (A, mu, and sigma) under the TCS(Trinity) scenario:
+
+Train a policy in a 3-dimensional tolling environment (A, mu, sigma) under the TCS (Trinity) scenario:
+
 ```bash
-python3 RL4PT/main.py env_id=CommuteEnv_A_mu_sigma scenario=Trinity seed=111 resume=False
+cd ..
+python3 RL4TCS/main.py env_id=CommuteEnv_A_mu_sigma scenario=Trinity seed=111 resume=False
 ```
 
-To use Slurm for batch training:
-
+To launch a batch training job with Slurm:
 ```bash
+cd ..
 sbatch RL4TCS/main.job
 ```
 
@@ -97,18 +103,12 @@ gym-custom-env/
 │   │   ├── commute_env_A_mu_sigma.py
 │   │   ├── commute_env_A_mu.py
 │   │   ├── commute_env_A_sigma.py
-│   │   ├── commute_env_A_v2.py
-│   │   ├── commute_env_A_v3.py
 │   │   ├── commute_env_A.py
 │   │   ├── commute_env_base.py
 │   │   ├── commute_env_mu_sigma.py
-│   │   ├── commute_env_mu_v3.py
 │   │   ├── commute_env_mu.py
-│   │   ├── commute_env_sigma_v3.py
 │   │   ├── commute_env_sigma.py
-│   │   ├── commute_env_sw.py
-│   │   ├── MFD_env.py
-│   │   └── test_env.py
+│   │   └── MFD_env.py
 │   │
 │   ├── wrappers/
 │   │   ├── __init__.py
@@ -117,6 +117,9 @@ gym-custom-env/
 │
 ├── statistics/
 │   └── statistics for 1-dim-RL-MFD-eval.ipynb
+│
+├── output/ 
+│   └── input from NT to calculating social welfare
 │
 ├── config.py
 ├── helper.py
@@ -138,11 +141,16 @@ commute_env_base.py         | Base class with shared logic for all commute envir
 |commute_env_sigma.py         |  Commute environment within 1-dim action space: update `sigma`.|
 | Bottleneck_env.py           | Bottleneck-based simulation.            |
 | MFD_env.py                  | Macroscopic Fundamental Diagram (MFD)-based simulation/        |
-| test_env.py                 | Minimal environment used for testing/debugging the RL pipeline.             |
+
+## Citation
+If you use this work, please cite:
+
+> Wu, Xiaoyi, et al. "Deep Reinforcement Learning for Day-to-day Dynamic Tolling in Tradable Credit Schemes." arXiv preprint arXiv:2504.08074 (2025).
+
+📄 [View citation file](./CITATION.cff)  
+📚 [arXiv:2504.08074](https://arxiv.org/abs/2504.08074)
 
 ## Contact
 - Xiaoyi Wu - [xiawu@dtu.dk]
 - Denmark Technical University
-
-
 

@@ -14,5 +14,5 @@ gym_custom_env/envs/commute_env_A_sigma.py
 gym_custom_env/envs/commute_env_base.py
 gym_custom_env/envs/commute_env_mu.py
 gym_custom_env/envs/commute_env_mu_sigma.py
-gym_custom_env/envs/test_env.py
+gym_custom_env/envs/commute_env_sigma.py
 gym_custom_env/wrappers/__init__.py

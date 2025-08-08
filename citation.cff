@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the following work:"
+title: "Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes"
+authors:
+  - family-names: Wu
+    given-names: Xiaoyi
+    affiliation: Technical University of Denmark
+    email: xiawu@dtu.dk
+date-released: 2025-08-08
+url: https://arxiv.org/abs/2504.08074
+repository-code: https://github.com/XiaoyiWu21/RL4TCS
+license: MIT
+keywords:
+  - Reinforcement Learning
+  - Dynamic Tolling
+  - Tradable Credit Scheme
+type: software
+version: 1.0.0
