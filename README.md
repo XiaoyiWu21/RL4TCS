@@ -3,9 +3,17 @@
 This repository contains code for the paper: <a href="https://arxiv.org/abs/2504.08074">Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes</a>.
  
 ## Overview
-The goal of this project is to explore RL for day-to-day dynamic tolling within tradable credit schemes (TCS) based on following work:
+## Overview
 
-- TCS: Chen, Siyu, et al. <a href="https://www.sciencedirect.com/science/article/pii/S0968090X23001109">Market design for tradable mobility credits. </a>
+In this project, we investigates reinforcement learning (RL) for day-to-day dynamic toll optimization within a tradable credit scheme (TCS) framework. Our key contributions include:
+
+- **Problem Formulation**:  We formulate the dynamic tolling problem in a TCS as a Markov Decision Process (MDP) and solve it using a deep reinforcement learning framework.
+- **Generalization Analysis**: We evaluate the proposed approach across diverse demand and supply scenarios to assess its generalization under unseen events.
+- **Robustness Analysis**: We examine the robustness of the RL algorithm under various hyperparameter configurations and policy regularization techniques, providing insights into real-world application.
+
+More details about the TCS mechanism and the supply model used in this project can be found in the following works:
+
+- **TCS**:  Chen, Siyu, et al. <a href="https://www.sciencedirect.com/science/article/pii/S0968090X23001109">Market design for tradable mobility credits. </a>
  Transportation Research Part C: Emerging Technologies 151 (2023): 104121.
 - Macroscopic Fundamental Diagram (MFD): Liu, Renming, et al. <a href="https://www.tandfonline.com/doi/full/10.1080/21680566.2022.2083034">Managing network congestion with a trip-and area-based tradable credit scheme. </a> Transportmetrica B: Transport Dynamics 11.1 (2023): 434-462. Code available at  <a href="https://github.com/RM-Liu/MFD_TCS">RM-Liu/MFD_TCS</a>. 
 
