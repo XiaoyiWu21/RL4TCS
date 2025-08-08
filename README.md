@@ -114,7 +114,7 @@ gym-custom-env/
 │   │   └── MFD_env.py
 │   │
 │   ├── wrappers/
-│   │   ├── __init__.py
+│   │   └── __init__.py
 │   │
 │   └── gym_custom_env.egg-info/
 │
@@ -122,7 +122,8 @@ gym-custom-env/
 │   └── statistics for 1-dim-RL-MFD-eval.ipynb
 │
 ├── output/ 
-│   └── input from NT scenari to calculate social welfare
+│   ├── MFD        # Input from NT output to calculate social welfare
+│   └── BO_new_MDP # BO output
 │
 ├── config.py 
 ├── helper.py 
