@@ -1,6 +1,6 @@
 # Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes
 
-This repository contains code for the paper: <a href="https://arxiv.org/abs/2504.08074">Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes</a>.
+This repository contains code for the paper: <a href="https://doi.org/10.1080/21680566.2025.2552884">Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes</a>.
  
 ## Overview
 In this project, we investigates reinforcement learning (RL) for day-to-day dynamic tolling optimization within a tradable credit scheme (TCS) framework. Our key contributions include:
@@ -155,10 +155,10 @@ commute_env_base.py         | Base class with shared logic for all commute envir
 ## Citation
 If you use this work, please cite:
 
-> Wu, Xiaoyi, et al. "Deep Reinforcement Learning for Day-to-day Dynamic Tolling in Tradable Credit Schemes." arXiv preprint arXiv:2504.08074 (2025).
+> Wu, X., Seshadri, R., Rodrigues, F., & Lima Azevedo, C. (2025). Deep reinforcement learning for day-to-day dynamic tolling in tradable credit schemes. Transportmetrica B: Transport Dynamics, 13(1). https://doi.org/10.1080/21680566.2025.2552884
 
 📄 [View citation file](./CITATION.cff)  
-📚 [arXiv:2504.08074](https://arxiv.org/abs/2504.08074)
+📚 [View the paper](https://doi.org/10.1080/21680566.2025.2552884)
 
 ## Contact
 - Xiaoyi Wu - [xiawu@dtu.dk]
