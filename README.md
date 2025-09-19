@@ -157,7 +157,7 @@ If you use this work, please cite:
 
 > Wu, X., Seshadri, R., Rodrigues, F., & Lima Azevedo, C. (2025). Deep reinforcement learning for day-to-day dynamic tolling in tradable credit schemes. Transportmetrica B: Transport Dynamics, 13(1). https://doi.org/10.1080/21680566.2025.2552884
 
-📄 [View citation file](./CITATION.cff)  
+📄 [View citation file](./citation.cff)  
 📚 [View the paper](https://doi.org/10.1080/21680566.2025.2552884)
 
 ## Contact
