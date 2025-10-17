@@ -5,9 +5,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=32
-#SBATCH --output=/home/xiawu/RL4PT/logs/hpc_log/RL_MFD/Jun_2025/Output_%A_%a.out
-#SBATCH --error=/home/xiawu/RL4PT/logs/hpc_log/RL_MFD/Jun_2025/Output_%A_%a.err
-#SBATCH --mail-user=xiawu@dtu.dk
+#SBATCH --output=/home/RL4PT/logs/hpc_log/RL_MFD/Jun_2025/Output_%A_%a.out
+#SBATCH --error=/home/RL4PT/logs/hpc_log/RL_MFD/Jun_2025/Output_%A_%a.err
 #SBATCH --mail-type=END # Send email when the job finishes
 
 module load Python/3.10.4-GCCcore-11.3.0 
