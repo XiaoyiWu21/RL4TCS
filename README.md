@@ -1,6 +1,7 @@
 # Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes
 
-This repository contains code for the paper: <a href="https://doi.org/10.1080/21680566.2025.2552884">Deep Reinforcement Learning for Day-to-Day Dynamic Tolling in Tradable Credit Schemes</a>.
+This repository contains code for the paper: <a href="[https://doi.org/10.1080/21680566.2025.2552884](https://www.sciencedirect.com/science/article/pii/S2352146525002613)">Joint Design of Conventional Public Transport Network and Mobility on Demand
+</a>.
  
 ## Overview
 In this project, we investigates reinforcement learning (RL) for day-to-day dynamic tolling optimization within a tradable credit scheme (TCS) framework. Our key contributions include:
